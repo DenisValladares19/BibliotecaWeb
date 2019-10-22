@@ -1,0 +1,18 @@
+	body{
+		/*background: linear-gradient(white,rgba(224, 234, 247,1));*/
+		padding: 50px;
+	}
+
+	h3{
+		color:rgba(0,0,0,1);
+	}
+
+	h2{
+		color:rgba(0,0,0,0.7);
+		text-align: center;
+
+	}
+
+	#no{
+		color:rgba(0,0,0,0.5);
+	}
