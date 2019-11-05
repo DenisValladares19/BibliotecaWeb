@@ -39,10 +39,12 @@
           </div>
         </div>
       </div>
-      <div class="row">
+        <div class="row" style="padding-top: 10px;">
       <%
+          int x =0;
           List<Autor> ls = daoA.mostrarAutores();
           for (Autor u : ls) {
+              x++;
       %>
       <div class="span3">
           <img src="assets/img/autor/<%= u.getImagen()%>" alt="<%= u.getNombre()%>" width="400" height="300" class="img-polaroid" />
@@ -56,9 +58,15 @@
           <br>
       </div>
       <%
+          if(x%4==0){
+              %>
+               </div>
+               <div class="row" style="padding-top: 10px;">
+       <%
+             }
           }
       %>
-    </div>
+               </div>
     </div>
     <jsp:include page="layout/footer.jsp"></jsp:include>
 </body>
