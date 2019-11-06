@@ -20,6 +20,7 @@
   <jsp:include page="layout/css.jsp"></jsp:include>
   
   <%
+      int x = 0;
       DaoLibro daoL=new DaoLibro();
   %>
   
@@ -38,10 +39,11 @@
           </div>
         </div>
       </div>
-      <div class="row">
+        <div class="row" style="padding-top: 10px;">
       <%
           List<Libro> ls = daoL.mostrarLibros();
           for (Libro lib : ls) {
+              x++;
       %>
       <div class="span3">
           <img src="assets/img/libro/<%= lib.getImagen()%>" alt="<%= lib.getNombre()%>" width="400" height="400" class="img-polaroid" />
@@ -54,6 +56,12 @@
           </div>
       </div>
       <%
+          if(x%4==0){
+              %>
+                    </div>
+                    <div class="row" style="padding-top: 10px;">
+              <%
+          }
           }
       %>
     </div>
