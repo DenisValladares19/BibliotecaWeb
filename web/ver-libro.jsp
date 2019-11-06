@@ -53,16 +53,16 @@
                         <h5><strong>Fecha de Lanzamiento: </strong><%= l.getAnioLanzamiento() %></h5>
                         <h5><strong>Editorial: </strong><%= l.getEditorial().getNombre() %></h5>
                         <h5><strong>Edición: </strong><%= l.getEdicion() %></h5>
-                        <input type="number" class="control-list" min="1"/><br>
+                        <input type="number" id="cant" class="control-list" min="1" value="1"/><br>
                         <div class="row">
                             <div class="span2">
-                                <button class="btn btn-success btn-block">Comprar</button>
+                                <a class="btn btn-success btn-block"  id="btnCarrito" data-id="<%= l.getIdLibro() %>" href="carro">Comprar</a>
                             </div>
                         </div>
                         <div class="row"><p> </p></div>
                         <div class="row">
                             <div class="span2">
-                                <button class="btn btn-warning btn-block">Prestar</button>
+                                <button class="btn btn-warning btn-block" >Prestar</button>
                             </div>
                         </div>
                         <h5><strong>Sinpsis</strong></h5>
@@ -91,3 +91,17 @@
 <%
     }
 %>
+
+<script>
+    $(document).ready(function (){
+        $("#btnCarrito").click(function (e){
+            e.preventDefault();
+            var id = $("#btnCarrito").data("id");
+            var cant = $("#cant").val(); 
+            $.post("carro",{id,cant},function(res){
+                alert(res);
+            });
+        });
+    });
+    
+</script>
