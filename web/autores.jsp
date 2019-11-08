@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <jsp:include page="layout/css.jsp"></jsp:include>
+  <jsp:include page="layout/css1.jsp"></jsp:include>
   <%
       DaoAutor daoA = new DaoAutor();
       Autor a = new Autor();
@@ -26,48 +26,38 @@
 </head>
 
 <body>
-    <jsp:include page="layout/menu_pages.jsp"></jsp:include>
-    <div class="container mt-5">
-        <br><br><br><br><br><br>
-        <div class="row">
-        <div class="span12">
-          <div class="heading">
-            <h3><span>Autores</span></h3>
-          </div>
-          <div class="sub-heading">
-           
-          </div>
-        </div>
-      </div>
-        <div class="row" style="padding-top: 10px;">
+    <jsp:include page="layout/menu_pagep.jsp"></jsp:include>
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"> Autores </h2>
+      <div class="row">
       <%
-          int x =0;
           List<Autor> ls = daoA.mostrarAutores();
           for (Autor u : ls) {
-              x++;
       %>
-      <div class="span3">
-          <img src="assets/img/autor/<%= u.getImagen()%>" alt="<%= u.getNombre()%>" width="400" height="300" class="img-polaroid" />
-          <div class="roles">
-              <h5><strong><%= u.getNombre()%></strong></h5>
-              <p>
-                  <b>Genero: </b><a href="genero.jsp?g=<%= u.getGenero().getIdGenero() %>"> <%= u.getGenero().getNombre() %> </a>
-              </p>
-              <a href="autor.jsp?a=<%= u.getIdAutor()%>" class="btn btn-theme">Leer mas</a>
-          </div>
+      
+      <div class="col-md-6 col-lg-4">
+          <div class="mx-auto">
+            <div class="d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+           <img src="assets/img/autor/<%= u.getImagen()%>" alt="<%= u.getNombre()%>" class="img-fluid" />
+            <div class="text-center">
+                <h5><strong><%= u.getNombre()%></strong></h5>
+                <p>
+                    <b>Genero: </b><a href="genero.jsp?g=<%= u.getGenero().getIdGenero() %>"> <%= u.getGenero().getNombre() %> </a>
+                </p>
+                <a href="autor.jsp?a=<%= u.getIdAutor()%>" class="btn btn-outline-primary">Leer mas</a>
+            </div>
           <br>
-      </div>
+          </div>
+       </div>
       <%
-          if(x%4==0){
-              %>
-               </div>
-               <div class="row" style="padding-top: 10px;">
-       <%
-             }
           }
       %>
-               </div>
     </div>
-    <jsp:include page="layout/footer.jsp"></jsp:include>
+    </div>
+    <jsp:include page="layout/footeer.jsp"></jsp:include>
 </body>
 </html>
