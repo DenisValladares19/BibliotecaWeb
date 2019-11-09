@@ -272,7 +272,7 @@ borradoLogico int,
 primary key(idMembresia));
 
 create table tipoMembresia(
-idTipoMembresia int auto_increment,
+idTipoMembresia int primary key auto_increment,
 nombre varchar(50)
 );
 
